@@ -19,7 +19,7 @@ public class AboutCommand implements ICommand {
         embed.setTitle("WinBot v0.1");
         StringBuilder str = new StringBuilder();
         str
-                .append("**About**: JDA AAAAAAAAAAAAAAAAAA.\n")
+                .append("**About**: A Discord bot made specifically for use in the WinWorld server .\n")
                 .append("**Created**: ").append(ctx.getSelfMember().getUser().getTimeCreated()).append("\n")
                 .append("**Owner**: "). append("floppydisk#0590").append("\n")
                 .append("**Library**: "). append("JDA").append("\n");
