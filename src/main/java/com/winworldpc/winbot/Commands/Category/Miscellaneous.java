@@ -8,6 +8,7 @@ public class Miscellaneous implements ICategory {
     public Miscellaneous(CommandManager manager){
         commands.addCommand(new CatCommand());
         commands.addCommand(new DiceCommand());
+        commands.addCommand(new HackermanCommand());
         commands.addCommand(new HelpCommand(manager));
         commands.addCommand(new PingCommand());
         commands.addCommand(new UptimeCommand());

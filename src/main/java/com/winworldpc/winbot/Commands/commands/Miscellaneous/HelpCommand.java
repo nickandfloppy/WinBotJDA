@@ -55,7 +55,7 @@ public class HelpCommand implements ICommand {
     }
 
     private void generateAndSendHelpEmbed(TextChannel channel){
-        EmbedBuilder builder = EmbedUtils.defaultEmbed().setTitle("A list of all my commands:").setColor(Config.EMBED_COLOR);
+        EmbedBuilder builder = EmbedUtils.defaultEmbed().setTitle("WinBot Commands").setColor(Config.EMBED_COLOR);
         StringBuilder miscBuilder = new StringBuilder();
         StringBuilder infoBuilder = new StringBuilder();
         StringBuilder adminBuilder = new StringBuilder();
@@ -63,13 +63,13 @@ public class HelpCommand implements ICommand {
         //StringBuilder musicBuilder = new StringBuilder();
         for(ICommand cmd : manager.getCommands()){
             if(cmd.getCategory()== "Miscellaneous"){
-                miscBuilder.append(Config.PREFIX).append(cmd.getName()).append("\n");
+                miscBuilder.append("| " + cmd.getName()).append(" ");
             }
             else if(cmd.getCategory() == "Information"){
-                infoBuilder.append(Config.PREFIX).append(cmd.getName()).append("\n");
+                infoBuilder.append("| " + cmd.getName()).append(" ");
             }
             else if(cmd.getCategory() == "Admin"){
-                adminBuilder.append(Config.PREFIX).append(cmd.getName()).append("\n");
+                adminBuilder.append("| " + cmd.getName()).append(" ");
             }
             /*else if(cmd.getCategory() == "Moderation"){
                 modBuilder.append(Config.get("prefix")).append(cmd.getName()).append("\n");
@@ -79,11 +79,17 @@ public class HelpCommand implements ICommand {
             }*/
 
         }
-        builder.addField("Admin", adminBuilder.toString(), true);
-        builder.addField("Miscellaneous", miscBuilder.toString(), true);
-        /*builder.addField("Moderation", modBuilder.toString(), true);
-        builder.addField("Music", musicBuilder.toString(), true);*/
-        builder.addField("Information", infoBuilder.toString(), true);
+        miscBuilder.deleteCharAt(0);
+        infoBuilder.deleteCharAt(0);
+        adminBuilder.deleteCharAt(0);
+
+        builder.addField("Admin", adminBuilder.toString(), false);
+        builder.addField("Miscellaneous", miscBuilder.toString(), false);
+        /*builder.addField("Moderation", modBuilder.toString(), false);
+        builder.addField("Music", musicBuilder.toString(), false);*/
+        builder.addField("Information", infoBuilder.toString(), false);
+
+        builder.setFooter("Type \"" + Config.PREFIX + "help [command] to get more info on a command");
 
 
         channel.sendMessage(builder.build()).queue();

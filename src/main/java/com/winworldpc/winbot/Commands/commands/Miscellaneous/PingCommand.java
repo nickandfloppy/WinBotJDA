@@ -13,7 +13,7 @@ public class PingCommand implements ICommand {
     public void handle(CommandContext ctx) {
         JDA jda = ctx.getJDA();
         jda.getRestPing().queue(
-                (ping)-> ctx.getChannel().sendMessageFormat("Rest Ping: %s\nWS Ping: %s", ping, jda.getGatewayPing()).queue()
+                (ping)-> ctx.getChannel().sendMessageFormat(":ping_pong: Pong!\nRest Ping: **%sms**\nWS Ping: **%sms**", ping, jda.getGatewayPing()).queue()
         );
     }
 
