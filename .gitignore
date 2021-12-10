@@ -1,2 +1,7 @@
-bin\
-.gradle\
+bin/
+.gradle/
+.settings/
+.vscode/
+
+# Ignore config file so you don't push the token
+Config.java
