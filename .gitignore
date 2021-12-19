@@ -5,3 +5,6 @@ bin/
 
 # Ignore config file so you don't push the token
 Config.java
+
+# Ignore built jarfile
+*.jar
