@@ -4,7 +4,7 @@ bin/
 .vscode/
 
 # Ignore config file so you don't push the token
-Config.java
+src/main/java/com/winworldpc/winbot/Config.java
 
 # Ignore built jarfile
 *.jar
